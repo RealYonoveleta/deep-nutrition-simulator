@@ -1,11 +1,6 @@
-from src.deep_nutrition_simulator.generator.constants import FitnessGoal
-import random
+from src.deep_nutrition_simulator.generator.constants import FitnessGoal, KCAL_PER_GRAM
 
-KCAL_PER_GRAM = {
-    "protein": 4,
-    "carbohydrates": 4,
-    "fats": 9
-}
+import random
 
 def generate_daily_intake(goal: FitnessGoal, target_calories: float, macro_sigma=0.05):
 

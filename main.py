@@ -7,7 +7,8 @@ p1 = Person(
     weight=69.3,
     age=28,
     activity_level=ActivityLevel.LIGHTLY_ACTIVE,
-    fitness_goal=FitnessGoal.BULK
+    fitness_goal=FitnessGoal.BULK,
+    body_fat_pctg=0.243
 )
 
 print(f"BMR: {p1.get_bmr()} kcal")

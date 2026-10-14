@@ -1,9 +1,22 @@
-from src.deep_nutrition_simulator.generator.constants import Gender
+from src.deep_nutrition_simulator.generator.constants import BmrFormula, Gender
 
-def mifflin_st_jeor(gender: Gender, age: int, height: float, weight: float) -> float:
-    formulas = {
-        Gender.MALE: lambda w, h, a: (10 * w) + (6.25 * h) - (5 * a) + 5,
-        Gender.FEMALE: lambda w, h, a: (10 * w) + (6.25 * h) - (5 * a) - 161
-    }
+def mifflin_st_jeor(gender: Gender, age: int, height: float, weight: float, **kwargs) -> float:
+    match gender:
+        case Gender.MALE:
+            return (10 * weight) + (6.25 * height) - (5 * age) + 5
 
-    return formulas[gender](weight, height, age)
+        case Gender.FEMALE:
+            return (10 * weight) + (6.25 * height) - (5 * age) - 161
+
+        case _:
+            raise ValueError(f"Unsupported gender: {gender!r}")
+
+def katch_mcardle(weight: float, body_fat_pctg: float, **kwargs) -> float:
+    lbm = weight * (1 - body_fat_pctg)
+
+    return 370 + (21.6 * lbm) 
+
+BMR_FORMULAS = {
+    BmrFormula.MSJ: mifflin_st_jeor, 
+    BmrFormula.KM: katch_mcardle
+}

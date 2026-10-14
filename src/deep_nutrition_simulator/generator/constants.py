@@ -1,7 +1,15 @@
 from enum import Enum
 
+KCAL_PER_GRAM = {
+    "protein": 4,
+    "carbohydrates": 4,
+    "fats": 9
+}
+
+CALORIES_PER_1KG = 7700
+
 class Gender(Enum):
-    MALE = "male",
+    MALE = "male"
     FEMALE = "female"
 
 class ActivityLevel(Enum):
@@ -30,3 +38,7 @@ class FitnessGoal(Enum):
         "fats": 0.25,
         "caloric_mod": 0.00
     }
+
+class BmrFormula(Enum):
+    MSJ = "msj"
+    KM = "km"

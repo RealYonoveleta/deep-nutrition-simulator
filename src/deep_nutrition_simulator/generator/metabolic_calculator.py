@@ -1,18 +1,11 @@
-from src.deep_nutrition_simulator.generator.constants import Gender, ActivityLevel
-from src.deep_nutrition_simulator.generator.metabolic_formulas import mifflin_st_jeor
+from src.deep_nutrition_simulator.generator.constants import ActivityLevel, BmrFormula
+from src.deep_nutrition_simulator.generator.metabolic_formulas import BMR_FORMULAS
 
 class MetabolicCalculator:
 
     @staticmethod
-    def calculate_bmr(gender: Gender, weight: float, height: float, age: int, bmr_formula = "msj") -> float:
-
-        formulas = {
-            "msj": mifflin_st_jeor
-        }
-
-        formula = formulas[bmr_formula]
-
-        return formula(gender, age, height, weight)
+    def calculate_bmr(bmr_formula: BmrFormula = BmrFormula.KM, **kwargs) -> float:
+        return BMR_FORMULAS[bmr_formula](**kwargs)
 
     @staticmethod
     def calculate_tdee(bmr: float, activity_level: ActivityLevel) -> float:
