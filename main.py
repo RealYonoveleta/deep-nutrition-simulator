@@ -15,7 +15,7 @@ print(f"BMR: {p1.get_bmr()} kcal")
 print(f"TDEE: {p1.get_tdee()} kcal")
 
 for i in range(200):
-    daily_info = p1.eat(sigma=250)
+    daily_info = p1.eat()
     print(
-        f"Daily balance: {daily_info["balance"]:.2f} / Balance: {daily_info["balance"]:.2f} / Weight: {p1.weight:.2f}"
+        f"Daily balance: {daily_info["balance"]:.2f} / Balance: {daily_info["balance"]:.2f} / Weight: {daily_info["weight_after"]:.2f} / Bf_after: {daily_info["bf_after"]}"
     )

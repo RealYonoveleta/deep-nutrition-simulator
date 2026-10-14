@@ -24,19 +24,22 @@ class FitnessGoal(Enum):
         "protein": 0.25,
         "carbohydrates": 0.50,
         "fats": 0.25,
-        "caloric_mod": 500 
+        "caloric_mod": 500,
+        "fat_partition": 0.40
     }
     CUT = {
         "protein": 0.40,
         "carbohydrates": 0.35,
         "fats": 0.25,
-        "caloric_mod": -400
+        "caloric_mod": -400,
+        "fat_partition": 0.85
     }
     MAINTAIN = {
         "protein": 0.30,
         "carbohydrates": 0.45,
         "fats": 0.25,
-        "caloric_mod": 0.00
+        "caloric_mod": 0.00,
+        "fat_partition": 0.00
     }
 
 class BmrFormula(Enum):
